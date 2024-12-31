@@ -5,32 +5,26 @@ title: Abdelrahman Ghazaly
 
 <html lang="en" data-bs-theme="dark">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <title>{{  title  }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="/styles/styles.css" rel="stylesheet">
   <link href="/styles/home.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <h1>Abdelrahman Ghazaly</h1>
-  </header>
+  {{  components.navbar()  }}
 
-  <main>
-    <div>
-      <ol class="post-list">
-      {% for page in pages.byTag("posts", sortBy="publishDate=desc") %}
-        <li>
-          <a href="{{  page.data['url']  }}"><p class="title">{{  page.data['title']  }}</p></a>
-          <p class="description">{{  page.data['description']  }}</p>
-        </li>
-      {% endfor %}
-      </ol>
-    </div>
-  </main>
+  <div class="container">
+    {% for page in pages.byTag("posts", sortBy="publishDate=desc") %}
+    <a href="{{  page.data['url']  }}">
+      <article>
+        <h2>{{  page.data['title']  }}</h2>
+        <p>{{  page.data['description']  }}</p>
+      </article>
+    </a>
+    {% endfor %}
+  </div>
 
   {{  components.footer()  }}
 </body>
