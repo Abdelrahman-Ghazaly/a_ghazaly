@@ -21,13 +21,7 @@
 </head>
 
 <body>
-  <div id="NavBar">
-    <a href="/" class="title">A Ghazaly</a>
-  </div>
-
-  {% if header %}
-  <header style="background-image: url('{{ header }}'); background-repeat: none; background-size: cover;"></header>
-  {% endif %}
+  {{  components.navbar()  }}
 
   <main>
   {{  content  }}
